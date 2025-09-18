@@ -1,0 +1,30 @@
+{
+  "name": "portfolio-email-api",
+  "version": "1.0.0",
+  "description": "Email API for Iman Elawady Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "email",
+    "nodemailer",
+    "portfolio",
+    "contact-form"
+  ],
+  "author": "Iman Elawady",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^7.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
