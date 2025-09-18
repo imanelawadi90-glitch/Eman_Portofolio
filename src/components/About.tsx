@@ -46,43 +46,7 @@ const About = () => {
 
 
 
-          {/* About Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            
-            {/* About Text */}
-            <div className="space-y-6 animate-fade-in" style={{animationDelay: '0.2s'}}>
-              <h3 className="text-2xl font-playfair font-semibold text-primary">
-                My Journey
-              </h3>
-              <div className="space-y-4 text-foreground">
-                <p>
-                  My professional journey began in journalism, where I worked as a full-time journalist 
-                  at Sout El-Arab News (2017-2018) and later at Al-Wafd Newspaper (2018-2021). 
-                  This foundation gave me invaluable experience in storytelling, research, and 
-                  communicating complex information to diverse audiences.
-                </p>
-                <p>
-                  In 2022, I transitioned into digital content creation, starting as a freelance 
-                  scriptwriter for Ahmed Reda's "Break" program. This marked the beginning of my 
-                  journey into the digital media landscape, where I learned to craft engaging 
-                  content for YouTube, Instagram, and Facebook platforms.
-                </p>
-                <p>
-                  I continued expanding my digital expertise with Cairo Time platform (2022-2024), 
-                  creating scripts for multi-platform content across YouTube, TikTok, Instagram, 
-                  and Facebook. This experience taught me the nuances of platform-specific content 
-                  and audience engagement strategies.
-                </p>
-                <p>
-                  My most recent work includes scripting for Amr El Hakim's "El Kalam 3ala Eh" 
-                  program (2023-2025) and currently, I'm working as a scriptwriter for "Leh El 
-                  Ensan?!" social media program. Throughout this journey, I've developed a unique 
-                  ability to adapt storytelling techniques across traditional journalism and 
-                  modern digital platforms.
-                </p>
-              </div>
-            </div>
-
+         
             {/* Skills */}
             <div className="space-y-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
               <h3 className="text-2xl font-playfair font-semibold text-primary">
