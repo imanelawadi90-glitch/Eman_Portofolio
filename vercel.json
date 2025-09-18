@@ -8,6 +8,9 @@
     },
     "api/headers.js": {
       "maxDuration": 5
+    },
+    "api/health.js": {
+      "maxDuration": 5
     }
   },
   "headers": [
