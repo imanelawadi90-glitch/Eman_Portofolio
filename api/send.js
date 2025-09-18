@@ -1,3 +1,5 @@
+const nodemailer = require('nodemailer');
+
 // Vercel serverless function
 module.exports = function handler(req, res) {
   // Set CORS headers
@@ -55,17 +57,53 @@ module.exports = function handler(req, res) {
       return;
     }
 
-    // For now, just return success without sending email
-    console.log('Contact form submission:', { name, email, subject, message });
-    
-    res.status(200).json({ 
-      message: 'Message received successfully! (Email sending temporarily disabled for testing)',
-      received: {
-        name,
-        email,
-        subject,
-        message: message.substring(0, 100) + '...'
+    // Create transporter
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    // Send email
+    transporter.sendMail({
+      from: `"${name}" <${process.env.EMAIL_USER}>`,
+      replyTo: email,
+      to: process.env.EMAIL_USER,
+      subject: `Portfolio Contact: ${subject}`,
+      text: message,
+      html: `
+        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #0BCEAF; margin-bottom: 20px;">New Contact Form Message</h2>
+          <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Subject:</strong> ${subject}</p>
+          </div>
+          <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+            <h3 style="color: #0BCEAF; margin-top: 0;">Message:</h3>
+            <p style="white-space: pre-wrap;">${message}</p>
+          </div>
+          <p style="text-align: center; margin-top: 20px; color: #666; font-size: 12px;">
+            Sent via portfolio contact form at ${new Date().toLocaleString()}
+          </p>
+        </div>
+      `,
+    }, (error, info) => {
+      if (error) {
+        console.error('Email sending error:', error);
+        res.status(500).json({ 
+          message: 'Failed to send email', 
+          details: error.message 
+        });
+        return;
       }
+      
+      console.log('Email sent successfully:', info.messageId);
+      res.status(200).json({ 
+        message: 'Email sent successfully!' 
+      });
     });
 
   } catch (error) {
@@ -75,4 +113,4 @@ module.exports = function handler(req, res) {
       details: error.message 
     });
   }
-}
+};
