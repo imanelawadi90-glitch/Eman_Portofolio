@@ -1,12 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ExternalLink, Calendar, Eye, Play, Video, Image as ImageIcon, Plus, X, Save, Edit, Loader2 } from "lucide-react";
+import { ExternalLink, Calendar, Video, Plus, X, Save, Loader2 } from "lucide-react";
 import { useState, useMemo, useCallback, memo, Suspense } from "react";
 import { 
   portfolioVideos, 
@@ -173,14 +172,9 @@ const Portfolio = () => {
 
   // Optimized filtering
   const filteredItems = useMemo(() => {
-    let filtered = portfolioItems;
-    
-    // Category filter
-    if (selectedCategory !== "All") {
-      filtered = filtered.filter(item => item.category === selectedCategory);
-    }
-    
-    return filtered;
+    return selectedCategory === "All" 
+      ? portfolioItems 
+      : portfolioItems.filter(item => item.category === selectedCategory);
   }, [portfolioItems, selectedCategory]);
 
   // Visible items for pagination
@@ -264,9 +258,9 @@ const Portfolio = () => {
     setIsEditing(false);
   }, [isEditing, editingItem, newArticle, portfolioItems]);
 
-  const handleDeleteArticle = useCallback((itemToDelete) => {
-      setPortfolioItems(prev => {
-        const updated = prev.filter(item => item.id !== itemToDelete.id);
+  const handleDeleteArticle = useCallback((itemToDelete: PortfolioItem) => {
+    setPortfolioItems(prev => {
+      const updated = prev.filter(item => item.id !== itemToDelete.id);
       if (visibleItems > updated.length - 1) {
         setVisibleItems(4);
       }

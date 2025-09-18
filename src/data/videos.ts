@@ -84,18 +84,10 @@ export const videoCategories = [
 ];
 
 // Utility functions for video handling
-export const getYouTubeVideoId = (url: string): string | null => {
+const getYouTubeVideoId = (url: string): string | null => {
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
   const match = url.match(regExp);
   return (match && match[2].length === 11) ? match[2] : null;
-};
-
-export const getYouTubeThumbnail = (url: string, quality = 'maxresdefault'): string | null => {
-  const videoId = getYouTubeVideoId(url);
-  if (videoId) {
-    return `https://img.youtube.com/vi/${videoId}/${quality}.jpg`;
-  }
-  return null;
 };
 
 export const formatVideoUrl = (url: string): string => {
@@ -104,32 +96,24 @@ export const formatVideoUrl = (url: string): string => {
   // YouTube URLs
   if (url.includes('youtube.com') || url.includes('youtu.be')) {
     const videoId = getYouTubeVideoId(url);
-    if (videoId) {
-      return `https://www.youtube.com/embed/${videoId}`;
-    }
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
   }
   
   // Facebook URLs
   if (url.includes('facebook.com') || url.includes('fb.watch')) {
     const fbMatch = url.match(/(?:facebook\.com\/.*\/videos\/|fb\.watch\/)(\d+)/);
-    if (fbMatch) {
-      return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&width=560`;
-    }
+    return fbMatch ? `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&width=560` : url;
   }
   
   // Instagram URLs
   if (url.includes('instagram.com')) {
-    // Handle Instagram reels and posts
     if (url.includes('/reel/')) {
       const reelId = url.split('/reel/')[1]?.split('/')[0];
-      if (reelId) {
-        return `https://www.instagram.com/reel/${reelId}/embed/`;
-      }
-    } else if (url.includes('/p/')) {
+      return reelId ? `https://www.instagram.com/reel/${reelId}/embed/` : url;
+    }
+    if (url.includes('/p/')) {
       const postId = url.split('/p/')[1]?.split('/')[0];
-      if (postId) {
-        return `https://www.instagram.com/p/${postId}/embed/`;
-      }
+      return postId ? `https://www.instagram.com/p/${postId}/embed/` : url;
     }
     return url;
   }
@@ -137,24 +121,23 @@ export const formatVideoUrl = (url: string): string => {
   // Vimeo URLs
   if (url.includes('vimeo.com')) {
     const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
-    if (vimeoMatch) {
-      return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
-    }
+    return vimeoMatch ? `https://player.vimeo.com/video/${vimeoMatch[1]}` : url;
   }
   
-  if (url.includes('/embed/')) {
-    return url;
-  }
-  
-  return url;
+  return url.includes('/embed/') ? url : url;
 };
 
 export const getVideoPlatform = (url: string): string => {
-  if (url.includes('youtube.com') || url.includes('youtu.be')) return 'YouTube';
-  if (url.includes('facebook.com') || url.includes('fb.watch')) return 'Facebook';
-  if (url.includes('instagram.com')) return 'Instagram';
-  if (url.includes('vimeo.com')) return 'Vimeo';
-  return 'Video';
+  const platformMap: Record<string, string> = {
+    'youtube.com': 'YouTube',
+    'youtu.be': 'YouTube',
+    'facebook.com': 'Facebook',
+    'fb.watch': 'Facebook',
+    'instagram.com': 'Instagram',
+    'vimeo.com': 'Vimeo'
+  };
+  
+  return Object.entries(platformMap).find(([key]) => url.includes(key))?.[1] || 'Video';
 };
 
 export const getFallbackThumbnail = (category: string): string => {
