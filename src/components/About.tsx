@@ -46,29 +46,11 @@ const About = () => {
 
           {/* About Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-
-         
-            {/* Skills */}
-            <div className="space-y-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
-              <h3 className="text-2xl font-playfair font-semibold text-primary">
-                Expertise & Skills
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {skills.map((skill, index) => (
-                  <Badge 
-                    key={index}
-                    variant="secondary" 
-                    className="group px-4 py-2 text-sm transition-all duration-300 hover:bg-accent hover:text-accent-foreground hover-scale hover-glow animate-scale-in relative overflow-hidden"
-                    style={{animationDelay: `${index * 0.05 + 0.5}s`}}
-                  >
-                    {/* Background shimmer effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                    <span className="relative z-10">{skill}</span>
-                  </Badge>
-                ))}
-              </div>
-              
-              <div className="pt-4">
+             {/* About Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            
+            {/* About Text */}
+            <div className="space-y-6 animate-fade-in" style={{animationDelay: '0.2s'}}>
                 <h4 className="text-lg font-playfair font-semibold text-primary mb-3">
                   Education & Courses
                 </h4>
@@ -107,6 +89,29 @@ const About = () => {
                     </div>
                   </li>
                 </ul>
+            </div>
+
+         
+            {/* Skills */}
+            <div className="space-y-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
+              <h3 className="text-2xl font-playfair font-semibold text-primary">
+                Expertise & Skills
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {skills.map((skill, index) => (
+                  <Badge 
+                    key={index}
+                    variant="secondary" 
+                    className="group px-4 py-2 text-sm transition-all duration-300 hover:bg-accent hover:text-accent-foreground hover-scale hover-glow animate-scale-in relative overflow-hidden"
+                    style={{animationDelay: `${index * 0.05 + 0.5}s`}}
+                  >
+                    {/* Background shimmer effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                    <span className="relative z-10">{skill}</span>
+                  </Badge>
+                ))}
+
+
               </div>
             </div>
           </div>
