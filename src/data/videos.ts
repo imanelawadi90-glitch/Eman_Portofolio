@@ -71,6 +71,18 @@ export const portfolioVideos: PortfolioItem[] = [
     videoUrl: "https://youtu.be/ipBSKYXJPcE?si=6UP2RwfJ1lDNzP5f",
     tags: ["Mental Health", "Technology", "Wellness"],
     featured: false,
+  },
+  {
+    id: 6,
+    title: "Mental Health in the Digital Age",
+    category: "Social Impact",
+    publication: "Wellness Weekly",
+    date: "December 2023",
+    duration: "12:30",
+    description: "Exploring the impact of social media and digital technology on mental health, featuring expert interviews and personal stories.",
+    videoUrl: "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fcairotime%2Fvideos%2F740942317755061%2F&show_text=false&width=380&t=0",
+    tags: ["Mental Health", "Technology", "Wellness"],
+    featured: false,
   }
 ];
 
