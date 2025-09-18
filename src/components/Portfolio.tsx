@@ -141,9 +141,9 @@ const MemoizedPortfolioCard = memo(({ item, index, onEdit, onDelete }: {
               className="w-full h-full transition-transform duration-300 group-hover:scale-105"
               frameBorder="0"
               allowFullScreen
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; unload"
               referrerPolicy="strict-origin-when-cross-origin"
-              sandbox="allow-scripts allow-same-origin allow-presentation"
+              sandbox="allow-scripts allow-same-origin allow-presentation allow-forms"
               loading="lazy"
               onError={(e) => {
                 const target = e.target as HTMLIFrameElement;

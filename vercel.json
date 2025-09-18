@@ -23,7 +23,7 @@
         },
         {
           "key": "Permissions-Policy",
-          "value": "unload=*"
+          "value": "unload=*, camera=(), microphone=(), geolocation=(), interest-cohort=()"
         },
         {
           "key": "X-Content-Type-Options",
