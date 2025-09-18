@@ -22,7 +22,12 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/send', {
+      // Use local server in development, Vercel API in production
+      const apiUrl = window.location.hostname === 'localhost' 
+        ? 'http://localhost:5000/send'
+        : '/api/send';
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
