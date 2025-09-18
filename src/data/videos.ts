@@ -80,7 +80,7 @@ export const portfolioVideos: PortfolioItem[] = [
     date: "December 2023",
     duration: "12:30",
     description: "Exploring the impact of social media and digital technology on mental health, featuring expert interviews and personal stories.",
-    videoUrl: "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fcairotime%2Fvideos%2F740942317755061%2F&show_text=false&width=380&t=0",
+    videoUrl: "https://www.facebook.com/plugins/video.php?height=300&href=https%3A%2F%2Fwww.facebook.com%2Fcairotime%2Fvideos%2F740942317755061%2F&show_text=false&width=540&t=0",
     tags: ["Mental Health", "Technology", "Wellness"],
     featured: false,
   }
