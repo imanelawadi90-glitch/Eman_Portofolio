@@ -70,7 +70,11 @@ app.post("/send", validateEmailInput, async (req, res) => {
     // Verify transporter configuration
     await transporter.verify();
 
-    await transporter.sendMail({
+    console.log('Sending email to:', process.env.EMAIL_USER);
+    console.log('From:', name, email);
+    console.log('Subject:', subject);
+    
+    const mailOptions = {
       from: `"${name}" <${process.env.EMAIL_USER}>`, // Use configured email as sender
       replyTo: email, // Set reply-to as the contact form email
       to: process.env.EMAIL_USER, // Send to your email
@@ -111,7 +115,11 @@ app.post("/send", validateEmailInput, async (req, res) => {
           </div>
         </div>
       `,
-    });
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully! Message ID:', info.messageId);
+    console.log('Email response:', info.response);
 
     res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
