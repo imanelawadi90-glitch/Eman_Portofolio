@@ -45,16 +45,27 @@ export default async function handler(req, res) {
       });
     }
 
-    const transporter = nodemailer.createTransporter({
+    console.log('Creating transporter with:', {
+      user: process.env.EMAIL_USER,
+      hasPass: !!process.env.EMAIL_PASS
+    });
+
+    const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      // Add timeout for Vercel serverless environment
+      connectionTimeout: 60000, // 60 seconds
+      greetingTimeout: 30000,   // 30 seconds
+      socketTimeout: 60000,     // 60 seconds
     });
 
     // Verify transporter configuration
+    console.log('Verifying transporter...');
     await transporter.verify();
+    console.log('Transporter verified successfully');
 
     console.log('Sending email to:', process.env.EMAIL_USER);
     console.log('From:', name, email);
@@ -113,19 +124,35 @@ export default async function handler(req, res) {
     console.error("Error details:", {
       code: error.code,
       response: error.response,
-      message: error.message
+      message: error.message,
+      stack: error.stack
     });
     
     // Provide more specific error messages
     let errorMessage = "Failed to send email.";
+    let statusCode = 500;
+    
     if (error.code === 'EAUTH') {
       errorMessage = "Authentication failed. Please check your email credentials.";
+      statusCode = 401;
     } else if (error.code === 'ECONNECTION') {
       errorMessage = "Connection failed. Please check your internet connection.";
+      statusCode = 503;
     } else if (error.code === 'ETIMEDOUT') {
       errorMessage = "Request timed out. Please try again.";
+      statusCode = 408;
+    } else if (error.message && error.message.includes('Invalid login')) {
+      errorMessage = "Invalid email credentials. Please check your Gmail app password.";
+      statusCode = 401;
+    } else if (error.message && error.message.includes('Less secure app access')) {
+      errorMessage = "Gmail security settings blocking access. Please use App Passwords.";
+      statusCode = 401;
     }
     
-    res.status(500).json({ message: errorMessage, details: error.message });
+    res.status(statusCode).json({ 
+      message: errorMessage, 
+      details: error.message,
+      code: error.code
+    });
   }
 }
