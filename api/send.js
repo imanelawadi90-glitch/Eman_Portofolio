@@ -1,47 +1,47 @@
 const nodemailer = require('nodemailer');
 
 export default async function handler(req, res) {
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  res.setHeader('Content-Type', 'application/json');
-
-  // Handle preflight requests
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method Not Allowed' });
-  }
-
-  const { name, email, subject, message } = req.body;
-
-  // Validate required fields
-  if (!name || !email || !subject || !message) {
-    return res.status(400).json({ 
-      message: 'All fields are required: name, email, subject, message' 
-    });
-  }
-
-  // Basic email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    return res.status(400).json({ 
-      message: 'Invalid email format' 
-    });
-  }
-
-  // Check for reasonable length limits
-  if (name.length > 100 || subject.length > 200 || message.length > 2000) {
-    return res.status(400).json({ 
-      message: 'Input too long. Name: max 100 chars, Subject: max 200 chars, Message: max 2000 chars' 
-    });
-  }
-
   try {
+    // Set CORS headers
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Content-Type', 'application/json');
+
+    // Handle preflight requests
+    if (req.method === 'OPTIONS') {
+      return res.status(200).end();
+    }
+
+    // Only allow POST requests
+    if (req.method !== 'POST') {
+      return res.status(405).json({ message: 'Method Not Allowed' });
+    }
+
+    const { name, email, subject, message } = req.body;
+
+    // Validate required fields
+    if (!name || !email || !subject || !message) {
+      return res.status(400).json({ 
+        message: 'All fields are required: name, email, subject, message' 
+      });
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ 
+        message: 'Invalid email format' 
+      });
+    }
+
+    // Check for reasonable length limits
+    if (name.length > 100 || subject.length > 200 || message.length > 2000) {
+      return res.status(400).json({ 
+        message: 'Input too long. Name: max 100 chars, Subject: max 200 chars, Message: max 2000 chars' 
+      });
+    }
+
     // Check if environment variables are set
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
       console.error('Missing email configuration');
@@ -50,7 +50,7 @@ export default async function handler(req, res) {
       });
     }
 
-    const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransporter({
       service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
@@ -104,7 +104,7 @@ export default async function handler(req, res) {
       `,
     });
 
-    res.status(200).json({ message: 'Email sent successfully!' });
+    return res.status(200).json({ message: 'Email sent successfully!' });
   } catch (error) {
     console.error('Email sending error:', error);
     
@@ -118,6 +118,6 @@ export default async function handler(req, res) {
       errorMessage = 'Request timed out. Please try again.';
     }
     
-    res.status(500).json({ message: errorMessage, details: error.message });
+    return res.status(500).json({ message: errorMessage, details: error.message });
   }
 }
