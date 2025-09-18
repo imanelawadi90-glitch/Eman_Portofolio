@@ -46,8 +46,6 @@ const About = () => {
 
           {/* About Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-             {/* About Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             
             {/* About Text */}
             <div className="space-y-6 animate-fade-in" style={{animationDelay: '0.2s'}}>
