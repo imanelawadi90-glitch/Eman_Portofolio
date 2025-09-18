@@ -31,7 +31,7 @@ const Hero = () => {
           <div className="text-white space-y-6 animate-fade-in">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold leading-tight animate-scale-in">
-                Iman Elawady
+                Iman Elawadi
               </h1>
               <div className="w-20 h-1 accent-gradient animate-slide-in-right"></div>
               <h2 className="text-xl md:text-2xl font-inter font-light text-white/90 animate-fade-in" style={{animationDelay: '0.2s'}}>
