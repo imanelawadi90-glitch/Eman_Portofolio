@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 const App = () => (
-  <ThemeProvider defaultTheme="light" storageKey="portfolio-theme">
+  <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
     <TooltipProvider>
       <Toaster />
       <Sonner />
