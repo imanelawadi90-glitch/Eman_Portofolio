@@ -9,7 +9,6 @@ import { ExternalLink, Calendar, Video, Plus, X, Save, Loader2 } from "lucide-re
 import { useState, useMemo, useCallback, memo, Suspense } from "react";
 import { 
   portfolioVideos, 
-  videoCategories, 
   formatVideoUrl, 
   getVideoPlatform, 
   getFallbackThumbnail,
@@ -25,7 +24,7 @@ const MemoizedPortfolioCard = memo(({ item, index, onEdit, onDelete }: {
 }) => {
   const formattedVideoUrl = useMemo(() => formatVideoUrl(item.videoUrl), [item.videoUrl]);
   const platform = useMemo(() => getVideoPlatform(item.videoUrl), [item.videoUrl]);
-  const fallbackColor = useMemo(() => getFallbackThumbnail(item.category), [item.category]);
+  const fallbackColor = useMemo(() => getFallbackThumbnail(), []);
   
   return (
     <Card 
@@ -148,7 +147,7 @@ const MemoizedPortfolioCard = memo(({ item, index, onEdit, onDelete }: {
 MemoizedPortfolioCard.displayName = 'MemoizedPortfolioCard';
 
 const Portfolio = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedChannel, setSelectedChannel] = useState("All");
   const [isLoading, setIsLoading] = useState(false);
   const [visibleItems, setVisibleItems] = useState(4);
   const [isAddArticleOpen, setIsAddArticleOpen] = useState(false);
@@ -158,7 +157,6 @@ const Portfolio = () => {
   // Form state for new article
   const [newArticle, setNewArticle] = useState({
     title: "",
-    category: "",
     publication: "",
     date: "",
     duration: "",
@@ -170,12 +168,21 @@ const Portfolio = () => {
 
   const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>(portfolioVideos);
 
+  // Get unique channels from portfolio items
+  const availableChannels = useMemo(() => {
+    const channels = portfolioItems
+      .map(item => item.publication)
+      .filter((channel, index, self) => channel && self.indexOf(channel) === index)
+      .sort();
+    return ["All", ...channels];
+  }, [portfolioItems]);
+
   // Optimized filtering
   const filteredItems = useMemo(() => {
-    return selectedCategory === "All" 
+    return selectedChannel === "All" 
       ? portfolioItems 
-      : portfolioItems.filter(item => item.category === selectedCategory);
-  }, [portfolioItems, selectedCategory]);
+      : portfolioItems.filter(item => item.publication === selectedChannel);
+  }, [portfolioItems, selectedChannel]);
 
   // Visible items for pagination
   const visiblePortfolioItems = useMemo(() => {
@@ -185,8 +192,8 @@ const Portfolio = () => {
   const hasMoreItems = visibleItems < filteredItems.length;
   
   // Optimized handlers
-  const handleCategoryFilter = useCallback((category) => {
-    setSelectedCategory(category);
+  const handleChannelFilter = useCallback((channel) => {
+    setSelectedChannel(channel);
     setVisibleItems(4);
   }, []);
   
@@ -205,7 +212,6 @@ const Portfolio = () => {
     setEditingItem(null);
     setNewArticle({
       title: "",
-      category: "",
       publication: "",
       date: "",
       duration: "",
@@ -222,7 +228,6 @@ const Portfolio = () => {
     setIsAddArticleOpen(true);
     setNewArticle({
       title: item.title,
-      category: item.category,
       publication: item.publication,
       date: item.date,
       duration: item.duration || "",
@@ -283,31 +288,34 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {videoCategories.map((category) => (
-            <Button
-              key={category}
-              variant={selectedCategory === category ? "default" : "outline"}
-              size="sm"
-              className="transition-all duration-200"
-              onClick={() => handleCategoryFilter(category)}
-            >
-              {category}
-              {selectedCategory === category && filteredItems.length > 0 && (
-                <Badge variant="secondary" className="ml-2 text-xs">
-                  {filteredItems.length}
-                </Badge>
-              )}
-            </Button>
-          ))}
+        {/* Channel Filter */}
+        <div className="flex justify-center mb-12">
+          <div className="w-full max-w-md">
+            <Select value={selectedChannel} onValueChange={handleChannelFilter}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Filter by channel" />
+              </SelectTrigger>
+              <SelectContent>
+                {availableChannels.map((channel) => (
+                  <SelectItem key={channel} value={channel}>
+                    {channel}
+                    {channel !== "All" && (
+                      <span className="ml-2 text-xs text-muted-foreground">
+                        ({portfolioItems.filter(item => item.publication === channel).length})
+                      </span>
+                    )}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
         </div>
 
         {/* Results Count */}
         <div className="text-center text-sm text-muted-foreground mb-8">
-          {selectedCategory !== "All" ? (
+          {selectedChannel !== "All" ? (
             <span>
-              Showing {visiblePortfolioItems.length} of {filteredItems.length} videos in {selectedCategory}
+              Showing {visiblePortfolioItems.length} of {filteredItems.length} videos from {selectedChannel}
             </span>
           ) : (
             <span>Showing {visiblePortfolioItems.length} of {portfolioItems.length} videos</span>
@@ -333,7 +341,7 @@ const Portfolio = () => {
                 No videos found
               </h3>
               <p className="text-muted-foreground">
-                No videos in this category
+                No videos from this channel
               </p>
             </div>
           )}
@@ -398,32 +406,17 @@ const Portfolio = () => {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="category">Category *</Label>
-                      <Select value={newArticle.category} onValueChange={(value) => setNewArticle(prev => ({ ...prev, category: value }))}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select category" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {videoCategories.filter(cat => cat !== "All").map((category) => (
-                            <SelectItem key={category} value={category}>
-                              {category}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="publication">Publication</Label>
+                      <Label htmlFor="publication">Channel/Publication *</Label>
                       <Input
                         id="publication"
                         value={newArticle.publication}
                         onChange={(e) => setNewArticle(prev => ({ ...prev, publication: e.target.value }))}
-                        placeholder="Publication name"
+                        placeholder="e.g., YouTube, Instagram, Facebook"
                       />
                     </div>
+                    </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="date">Date</Label>
                       <Input
@@ -431,6 +424,15 @@ const Portfolio = () => {
                         value={newArticle.date}
                         onChange={(e) => setNewArticle(prev => ({ ...prev, date: e.target.value }))}
                         placeholder="e.g., March 2024"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="duration">Duration</Label>
+                      <Input
+                        id="duration"
+                        value={newArticle.duration}
+                        onChange={(e) => setNewArticle(prev => ({ ...prev, duration: e.target.value }))}
+                        placeholder="e.g., 5:30"
                       />
                     </div>
                     </div>
@@ -483,7 +485,7 @@ const Portfolio = () => {
                   <Button variant="outline" onClick={() => setIsAddArticleOpen(false)}>
                       Cancel
                     </Button>
-                  <Button onClick={handleSaveArticle} disabled={!newArticle.title || !newArticle.category || !newArticle.videoUrl || !newArticle.description}>
+                  <Button onClick={handleSaveArticle} disabled={!newArticle.title || !newArticle.publication || !newArticle.videoUrl || !newArticle.description}>
                       <Save className="h-4 w-4 mr-2" />
                       {isEditing ? 'Update Article' : 'Add Article'}
                     </Button>

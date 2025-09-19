@@ -2,7 +2,6 @@
 export interface PortfolioItem {
   id: number;
   title: string;
-  category: string;
   publication: string;
   date: string;
   description: string;
@@ -16,7 +15,6 @@ export const portfolioVideos: PortfolioItem[] = [
   {
     id: 1,
     title: "Tech Industry Disruption: Behind the Scenes",
-    category: "Investigative Documentary",
     publication: "Tech Today Channel",
     date: "March 2024",
     description: "An investigative documentary exploring how emerging technologies are disrupting traditional business models across industries.",
@@ -27,7 +25,6 @@ export const portfolioVideos: PortfolioItem[] = [
   {
     id: 2,
     title: "Instagram Reel: Tech Innovation Showcase",
-    category: "Social Impact",
     publication: "Instagram",
     date: "March 2024",
     duration: "0:30",
@@ -39,7 +36,6 @@ export const portfolioVideos: PortfolioItem[] = [
   {
     id: 3,
     title: "Sustainable Living: Real Impact Stories",
-    category: "Lifestyle Documentary",
     publication: "EcoLife Network",
     date: "February 2024",
     duration: "8:45",
@@ -51,7 +47,6 @@ export const portfolioVideos: PortfolioItem[] = [
   {
     id: 4,
     title: "Digital Marketing Evolution 2024",
-    category: "Educational Series",
     publication: "Marketing Mastery",
     date: "January 2024",
     duration: "15:20",
@@ -63,7 +58,6 @@ export const portfolioVideos: PortfolioItem[] = [
   {
     id: 5,
     title: "Mental Health in the Digital Age",
-    category: "Social Impact",
     publication: "Wellness Weekly",
     date: "December 2023",
     duration: "12:30",
@@ -75,7 +69,6 @@ export const portfolioVideos: PortfolioItem[] = [
   {
     id: 6,
     title: "Mental Health in the Digital Age",
-    category: "Social Impact",
     publication: "Wellness Weekly",
     date: "December 2023",
     duration: "12:30",
@@ -83,17 +76,20 @@ export const portfolioVideos: PortfolioItem[] = [
     videoUrl: "https://www.facebook.com/plugins/video.php?height=300&href=https%3A%2F%2Fwww.facebook.com%2Fcairotime%2Fvideos%2F740942317755061%2F&show_text=false&width=540&t=0",
     tags: ["Mental Health", "Technology", "Wellness"],
     featured: false,
+  },
+  {
+    id: 7,
+    title: "Test Video with New Channel",
+    publication: "New Tech Channel",
+    date: "January 2024",
+    duration: "8:15",
+    description: "This is a test video to demonstrate the dynamic channel filtering functionality.",
+    videoUrl: "https://youtu.be/dQw4w9WgXcQ",
+    tags: ["Test", "Technology", "Demo"],
+    featured: false,
   }
 ];
 
-// Categories for filtering
-export const videoCategories = [
-  "All", 
-  "Investigative Documentary", 
-  "Lifestyle Documentary", 
-  "Educational Series", 
-  "Social Impact"
-];
 
 // Utility functions for video handling
 const getYouTubeVideoId = (url: string): string | null => {
@@ -152,12 +148,6 @@ export const getVideoPlatform = (url: string): string => {
   return Object.entries(platformMap).find(([key]) => url.includes(key))?.[1] || 'Video';
 };
 
-export const getFallbackThumbnail = (category: string): string => {
-  const categoryColors: Record<string, string> = {
-    'Investigative Documentary': 'bg-blue-600',
-    'Lifestyle Documentary': 'bg-green-600',
-    'Educational Series': 'bg-purple-600',
-    'Social Impact': 'bg-orange-600'
-  };
-  return categoryColors[category] || 'bg-gray-600';
+export const getFallbackThumbnail = (): string => {
+  return 'bg-gray-600';
 };
