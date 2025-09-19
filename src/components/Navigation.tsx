@@ -19,7 +19,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <h1 className="text-xl font-playfair font-semibold text-primary">
-              Iman Elawady
+              Iman Elawadi
             </h1>
           </div>
 
