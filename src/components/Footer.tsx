@@ -51,7 +51,7 @@ const Footer = () => {
           
           {/* Brand Section */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-playfair font-bold">Iman Elawady</h3>
+            <h3 className="text-2xl font-playfair font-bold">Iman Elawadi</h3>
             <p className="text-white/80 max-w-xs">
               Content Writer & Journalist crafting compelling stories that 
               engage audiences and drive results.
@@ -106,7 +106,7 @@ const Footer = () => {
         <div className="py-6 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-white/60 text-sm">
-              © {currentYear} Iman Elawady. All rights reserved.
+              © {currentYear} Iman Elawadi. All rights reserved.
             </p>
           </div>
         </div>
@@ -115,4 +115,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+xport default Footer;
