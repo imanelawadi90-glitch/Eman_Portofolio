@@ -41,13 +41,11 @@ export const portfolioVideos: PortfolioItem[] = [
   },
   {
     id: 4,
-    title: "Digital Marketing Evolution 2024",
-    publication: "Marketing Mastery",
-    date: "January 2024",
-    duration: "15:20",
-    description: "A comprehensive analysis of emerging digital marketing trends and their practical applications for businesses of all sizes.",
-    videoUrl: "https://youtu.be/BxWv2l31U0g?si=jrmqOpyZJ8ply48g",
-    tags: ["Marketing", "Digital Trends", "Business Strategy"],
+    title: "خوفك من الضلمة سببه جدك!",
+    date: "Jun 2023",
+    description: "الورث مش بس أرض وفلوس، الورث ممكن يكون كمان مخاوف، صدمات، قلق، وصراعات نفسية، مالكش أي ذنب فيها.. ويطلع في الآخر إن جدك الله يرحمه ويسامحه هو السبب.",
+    videoUrl: "https://www.facebook.com/plugins/video.php?height=300&href=https%3A%2F%2Fwww.facebook.com%2Fcairotime%2Fvideos%2F256713040307092%2F&show_text=false&width=540&t=0",
+    tags: ["CairoTime"],
     featured: true,
   },
   {
