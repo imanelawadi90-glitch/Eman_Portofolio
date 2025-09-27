@@ -34,7 +34,7 @@ export const portfolioVideos: PortfolioItem[] = [
     id: 3,
     title: "ما لا تعرفه عن الغُراب، المُعلم الأول للإنسان.",
     date: "Jul 2023",
-    description: "عنده وعي وإدراك، وبيصنع أدوات يستخدمها، وحاجات تانية كتير ما تعرفهاش عن "الغراب"، المُعلّم الأول للإنسان.",
+    description: "عنده وعي وإدراك، وبيصنع أدوات يستخدمها، وحاجات تانية كتير ما تعرفهاش عن الغراب، المُعلّم الأول للإنسان.",
     videoUrl: "https://www.facebook.com/plugins/video.php?height=300&href=https%3A%2F%2Fwww.facebook.com%2Fcairotime%2Fvideos%2F1520781531817459%2F&show_text=false&width=540&t=0",
     tags: ["CairoTime"],
     featured: true,
