@@ -40,7 +40,7 @@ export const portfolioVideos: PortfolioItem[] = [
     featured: true,
   },
   {
-    id: 3,
+    id: 4,
     title: "Sustainable Living: Real Impact Stories",
     publication: "EcoLife Network",
     date: "February 2024",
@@ -51,7 +51,7 @@ export const portfolioVideos: PortfolioItem[] = [
     featured: false,
   },
   {
-    id: 4,
+    id: 5,
     title: "Digital Marketing Evolution 2024",
     publication: "Marketing Mastery",
     date: "January 2024",
@@ -62,7 +62,7 @@ export const portfolioVideos: PortfolioItem[] = [
     featured: true,
   },
   {
-    id: 5,
+    id: 6,
     title: "Mental Health in the Digital Age",
     publication: "Wellness Weekly",
     date: "December 2023",
@@ -73,7 +73,7 @@ export const portfolioVideos: PortfolioItem[] = [
     featured: false,
   },
   {
-    id: 6,
+    id: 7,
     title: "Mental Health in the Digital Age",
     publication: "Wellness Weekly",
     date: "December 2023",
@@ -84,7 +84,7 @@ export const portfolioVideos: PortfolioItem[] = [
     featured: false,
   },
   {
-    id: 7,
+    id: 8,
     title: "Test Video with New Channel",
     publication: "New Tech Channel",
     date: "January 2024",
