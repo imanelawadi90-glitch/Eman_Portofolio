@@ -14,12 +14,12 @@ export interface PortfolioItem {
 export const portfolioVideos: PortfolioItem[] = [
   {
     id: 1,
-    title: "Tech Industry Disruption: Behind the Scenes",
+    title: "خوفك من الضلمة سببه جدك!",
     publication: "Tech Today Channel",
-    date: "March 2024",
-    description: "An investigative documentary exploring how emerging technologies are disrupting traditional business models across industries.",
+    date: "Jun 2023",
+    description: "الورث مش بس أرض وفلوس، الورث ممكن يكون كمان مخاوف، صدمات، قلق، وصراعات نفسية، مالكش أي ذنب فيها.. ويطلع في الآخر إن جدك الله يرحمه ويسامحه هو السبب.",
     videoUrl: "https://www.facebook.com/plugins/video.php?height=300&href=https%3A%2F%2Fwww.facebook.com%2Fcairotime%2Fvideos%2F256713040307092%2F&show_text=false&width=540&t=0",
-    tags: ["Technology", "Business", "Innovation"],
+    tags: ["CairoTime"],
     featured: true,
   },
   {
