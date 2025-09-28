@@ -94,15 +94,13 @@ export const portfolioVideos: PortfolioItem[] = [
   },
   {
     id: 9,
-    title: "Test Video with New Channel",
-    publication: "New Tech Channel",
-    date: "January 2024",
-    duration: "8:15",
-    description: "This is a test video to demonstrate the dynamic channel filtering functionality.",
-    videoUrl: "<iframe src="https://www.instagram.com/reel/C5_t987r55h/embed" width="540" height="300" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"></iframe>
-",
-    tags: ["Test", "Technology", "Demo"],
-    featured: false,
+    title: "ليه صوابعك مش زي بعضها؟",
+    date: "Jun 2022",
+    duration: "04:01",
+    description: "العلماء قضوا سنين طويلة بيحاولوا يفهموا ليه صوابع الإنسان مش كلها زي بعض.. جربوا يحطوا تصورات ليها لو غيروا أماكنها ويتلاعبوا بالترتيب، لحد ما اكتشفوا أسرار مذهلة هتعرفوها كلها بالتفصيل في الفيديو!",
+    videoUrl: "https://www.facebook.com/plugins/video.php?height=300&href=https%3A%2F%2Fwww.facebook.com%2Fa7mdReeda%2Fvideos%2F742509880271934%2F&show_text=false&width=540&t=0",
+    tags: ["Break"],
+    featured: true,
   }
 ];
 
