@@ -58,7 +58,7 @@ export const portfolioVideos: PortfolioItem[] = [
     date: "Jul 2023",
     duration: "05:28",
     description: "البوس عبارة عن لغة تواصل قوية، اتعمل عنه دراسات وأبحاث، واكتشفوا ليه فوايد مهمة، هتعرفها كلها في الفيديو ده.",
-    videoUrl: "https://www.facebook.com/plugins/video.php?height=300&href=https%3A%2F%2Fwww.facebook.com%2Fcairotime%2Fvideos%2F256713040307092%2F&show_text=false&width=540&t=0",
+    videoUrl: "https://www.facebook.com/plugins/video.php?height=300&href=https%3A%2F%2Fwww.facebook.com%2Fcairotime%2Fvideos%2F499433019039209%2F&show_text=false&width=540&t=0",
     tags: ["CairoTime"],
     featured: true,
   },
