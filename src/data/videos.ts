@@ -99,7 +99,7 @@ export const portfolioVideos: PortfolioItem[] = [
     date: "January 2024",
     duration: "8:15",
     description: "This is a test video to demonstrate the dynamic channel filtering functionality.",
-    videoUrl: "https://youtu.be/dQw4w9WgXcQ",
+    videoUrl: "https://www.instagram.com/reel/C5_t987r55h/embed?width=540&height=300",
     tags: ["Test", "Technology", "Demo"],
     featured: false,
   }
