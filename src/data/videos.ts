@@ -177,6 +177,17 @@ export const portfolioVideos: PortfolioItem[] = [
     tags: ["Break"],
     featured: true,
   },
+  {
+    id: 15,
+    title: "قصة الخرزة الزرقاء.. هل فعلًا بتبعد العين؟",
+    publication: "Elkalamalaeh",
+    date: "Aug 2022",
+    duration: "03:45",
+    description: "الخرزة الزرقاء في الثقافة المصرية، وعلاقتها بالحسد",
+    videoUrl: "https://www.instagram.com/reel/C5_t987r55h/embed?width=540&height=100",
+    tags: ["Elkalamalaeh"],
+    featured: true,
+  },
 ];
 
 
