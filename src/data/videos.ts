@@ -184,7 +184,7 @@ export const portfolioVideos: PortfolioItem[] = [
     date: "Aug 2022",
     duration: "03:45",
     description: "الخرزة الزرقاء في الثقافة المصرية، وعلاقتها بالحسد",
-    videoUrl: "https://www.instagram.com/reel/C5_t987r55h/embed?width=200&height=100",
+    videoUrl: "https://www.instagram.com/reel/C5_t987r55h/embed?width=200&height=50",
     tags: ["Elkalamalaeh"],
     featured: true,
   },
