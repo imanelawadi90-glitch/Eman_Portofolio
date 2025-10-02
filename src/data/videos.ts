@@ -184,7 +184,7 @@ export const portfolioVideos: PortfolioItem[] = [
     date: "Apr 2024",
     duration: "01:00",
     description: "أغبى خطة تجسس في التاريخ، اتعملت في الستينات، وللأسف بطلتها كانت قطة صغيرة؛ كلفت المخابرات الأمريكية 20 مليون دولار، بس اللي حصل بعد كده كان كارثي",
-    videoUrl: "<iframe src="https://www.instagram.com/reel/C5_t987r55h/embed" width="100" height="50" frameborder="0" allowtransparency="true" allowfullscreen="true"></iframe>",
+    videoUrl: "https://www.instagram.com/reel/C5_t987r55h/embed",
     tags: ["Elkalamalaeh"],
     featured: true,
   },
