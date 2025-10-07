@@ -92,7 +92,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-playfair font-semibold">Stay Updated</h4>
             <p className="text-white/80 text-sm">
-              Follow my latest articles and insights in content writing and journalism.
+              Explore my latest projects and insights in content writing.
             </p>
             <div className="flex items-center space-x-2 text-sm text-white/60">
               <Mail className="h-4 w-4" />
