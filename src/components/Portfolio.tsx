@@ -285,7 +285,8 @@ const Portfolio = () => {
           <div className="w-20 h-1 accent-gradient mx-auto mb-6"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
           Showcasing My Creative Video Projects
-            For Additional Work: More links available upon request.
+            <p
+              For Additional Work: More links available upon request.
           </p>
         </div>
 
