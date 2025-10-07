@@ -30,11 +30,8 @@ const About = () => {
             </h2>
             <div className="w-20 h-1 accent-gradient mx-auto mb-6"></div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I’m Iman, a passionate Content Writer and Scriptwriter dedicated to creating compelling, creative, and audience-focused content for digital platforms.
-            I specialize in producing visually engaging material that not only captures attention but also builds meaningful connections with audiences.
-            With a background in Drama and Theater Criticism, I began my career in journalism, which sharpened my storytelling skills and ability to craft impactful narratives.
-            Over time, I expanded my expertise through courses in content writing, visual storytelling, and human resources, allowing me to blend creativity with strategic communication.
-            This unique journey enables me to deliver high-quality, practical, and versatile content tailored to diverse audiences and digital platforms.
+           I am Iman, a dedicated Content Writer with a passion for scriptwriting and crafting creative content tailored for digital platforms. My work centers on producing visually engaging material that connects deeply with audiences.
+With a background in Drama and Theater Criticism, I started my career as a journalist, later broadening my skills through courses in content writing, visual storytelling, and Human Resources. This diverse journey has empowered me to deliver high-quality, practical content that resonates with audiences across various digital platforms.
             </p>
           </div>
 
