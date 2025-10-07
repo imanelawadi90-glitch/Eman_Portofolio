@@ -280,13 +280,12 @@ const Portfolio = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-playfair font-bold text-primary mb-4">
-            Videos & Articles
+            Videos
           </h2>
           <div className="w-20 h-1 accent-gradient mx-auto mb-6"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
           Showcasing My Creative Video Projects
-            <p
-              For Additional Work: More links available upon request.
+            For Additional Work: More links available upon request.
           </p>
         </div>
 
