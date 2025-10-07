@@ -283,11 +283,13 @@ const Portfolio = () => {
             Videos
           </h2>
           <div className="w-20 h-1 accent-gradient mx-auto mb-6"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-          Showcasing My Creative Video Projects </p>
-             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-               For Additional Work: More links available upon request.
-          </p>
+     <p className="text-lg text-white max-w-2xl mx-auto mb-4 text-center">
+  Showcasing My Creative Video Projects
+</p>
+<p className="text-lg text-white max-w-2xl mx-auto mb-8 text-center">
+  For Additional Work: More links available upon request.
+</p>
+
         </div>
 
         {/* Channel Filter */}
