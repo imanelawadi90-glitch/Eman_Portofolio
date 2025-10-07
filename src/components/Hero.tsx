@@ -35,13 +35,12 @@ const Hero = () => {
               </h1>
               <div className="w-20 h-1 accent-gradient animate-slide-in-right"></div>
               <h2 className="text-xl md:text-2xl font-inter font-light text-white/90 animate-fade-in" style={{animationDelay: '0.2s'}}>
-                Content Creator | Scriptwriter | Storyteller
+                Content Creator | Scriptwriter & Storyteller
               </h2>
             </div>
             
             <p className="text-lg md:text-xl text-white/80 font-inter max-w-xl leading-relaxed animate-fade-in" style={{animationDelay: '0.4s'}}>
-            I create compelling stories and impactful content that captivate audiences and deliver measurable results.
-            My expertise spans digital marketing, lifestyle, and investigative journalism.
+            I write impactful content that comes to life in engaging video projects.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-fade-in" style={{animationDelay: '0.6s'}}>
