@@ -265,6 +265,18 @@ export const portfolioVideos: PortfolioItem[] = [
     tags: ["Elkalamalaeh"],
     featured: true,
   },
+  
+  {
+    id: 16,
+    title: "انت متراقب جوا بيتك",
+    publication: "Elkalamalaeh",
+    date: "Apr 2024",
+    duration: "01:00",
+    description: "أغبى خطة تجسس في التاريخ، اتعملت في الستينات، وللأسف بطلتها كانت قطة صغيرة؛ كلفت المخابرات الأمريكية 20 مليون دولار، بس اللي حصل بعد كده كان كارثي",
+    videoUrl: "https://www.instagram.com/reel/DIBhcqAtduM/embed",
+    tags: ["Elkalamalaeh"],
+    featured: true,
+  },
 ];
 
 
