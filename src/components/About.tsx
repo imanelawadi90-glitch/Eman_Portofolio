@@ -3,12 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { PenTool, Users, Award, Globe } from "lucide-react";
 
 const About = () => {
-  const stats = [
-    { icon: PenTool, value: "500+", label: "Articles Published" },
-    { icon: Users, value: "50+", label: "Happy Clients" },
-    { icon: Award, value: "3", label: "Journalism Awards" },
-    { icon: Globe, value: "15+", label: "Publications" },
-  ];
 
   const skills = [
     "Creative Storytelling",
