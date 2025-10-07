@@ -11,17 +11,17 @@ const About = () => {
   ];
 
   const skills = [
-    "Content Strategy",
-    "Investigative Journalism",
-    "Digital Marketing",
-    "Copywriting",
-    "Editorial Management",
-    "Social Media Content",
-    "Technical Writing",
-    "Scriptwriting (digital platforms)",
-    "Creative Ad Content",
+    "Creative Storytelling",
+    "Scriptwriting for Digital Platforms",
+    "Video Script Editing",
     "Simplifying Complex Topics",
-    "Collaborative Project Management"
+    "Content Strategy",
+    "Copywriting",
+    "Creative Content Creation",
+    "Journalism",
+    "Collaborative Project Management",
+    "Critical Thinking",
+    "Adaptability",
   ];
 
   return (
