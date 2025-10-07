@@ -53,8 +53,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-2xl font-playfair font-bold">Iman Elawadi</h3>
             <p className="text-white/80 max-w-xs">
-              Content Writer & Journalist crafting compelling stories that 
-              engage audiences and drive results.
+              Content Creator | Scriptwriter & Storyteller crafting compelling stories that engage audiences and drive results
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
