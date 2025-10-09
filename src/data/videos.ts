@@ -285,7 +285,7 @@ export const portfolioVideos: PortfolioItem[] = [
     date: "Feb 2025",
     duration: "00:51",
     description: "كارثة حقيقية بتحصل تحت المسجد الأقصى، في الوقت اللي العالم كله مركز مع ترامب وغزة",
-    videoUrl: "https://www.instagram.com/reel/DIBhcqAtduM/embed",
+    videoUrl: "https://www.instagram.com/reel/DGWKQi0tmr0/embed",
     tags: ["Elkalamalaeh"],
     featured: true,
   },
