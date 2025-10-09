@@ -217,7 +217,7 @@ export const portfolioVideos: PortfolioItem[] = [
     date: "Nov 2023",
     duration: "01:34",
     description: "إسرائيل عندها أكبر بنك للجلد البشري في العالم، وفي نفس الوقت معندهاش ولا متبرع واحد، والسر في مقابر الأرقام اللي بيدفنوا فيها جثث الفلسطينيين",
-    videoUrl: "https://www.instagram.com/reel/Cz4hgKzrCTB/embed",
+    videoUrl: "https://www.instagram.com/reel/C0FezSXNzBT/embed",
     tags: ["Elkalamalaeh"],
     featured: true,
   },
