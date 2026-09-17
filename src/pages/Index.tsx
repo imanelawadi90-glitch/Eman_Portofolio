@@ -2,8 +2,10 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Portfolio from "@/components/Portfolio";
+import Slides from "@/components/Slides";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+
 
 const Index = () => {
   return (
@@ -12,6 +14,7 @@ const Index = () => {
       <Hero />
       <About />
       <Portfolio />
+      <Slides />
       <Contact />
       <Footer />
     </main>
